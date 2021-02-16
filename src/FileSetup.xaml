@@ -1,0 +1,45 @@
+﻿<Window x:Class="WPFTest.FileSetup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFTest"
+        mc:Ignorable="d"
+        Title="Drawing Setup" Height="320" Width="400" ResizeMode="NoResize" Topmost="True" WindowStartupLocation="CenterOwner" WindowStyle="SingleBorderWindow" Loaded="WindowLoad" ShowInTaskbar="False" Icon="isodraw.png">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="Drawing type" Margin="5">
+            <DockPanel HorizontalAlignment="Stretch" Height="Auto" LastChildFill="False" Margin="5" VerticalAlignment="Stretch" Width="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                <ComboBox Name="DrawingTypeCB" SelectedIndex="0" DockPanel.Dock="Top">
+                    <ComboBoxItem Content="Orthographic"/>
+                    <ComboBoxItem Content="Isometric"/>
+                </ComboBox>
+            </DockPanel>
+        </GroupBox>
+        <GroupBox Header="Width" Margin="5" Grid.Row="1">
+            <TextBox Name="SizeWidth" DockPanel.Dock="Top" Margin="5" ToolTip="Number" />
+        </GroupBox>
+        <GroupBox Header="Height" Margin="5" Grid.Row="2">
+            <TextBox Name="SizeHeight" DockPanel.Dock="Top" Margin="5" ToolTip="Number" />
+        </GroupBox>
+        <GroupBox Header="Matrix subdivisions" Margin="5" Grid.Row="3">
+            <DockPanel HorizontalAlignment="Stretch" Height="Auto" LastChildFill="False" Margin="5" VerticalAlignment="Stretch" Width="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                <Slider ValueChanged="ValueChange" Name="SubdivisionSlider" VerticalAlignment="Center" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Maximum="16" SmallChange="1" LargeChange="1" Width="320" Minimum="2" Value="2"/>
+                <TextBlock Name="SubdivisionValue" DockPanel.Dock="Right" Text="..." VerticalAlignment="Center" Width="25" TextAlignment="Center"/>
+            </DockPanel>
+        </GroupBox>
+        <DockPanel Grid.Row="4" Margin="5,0">
+            <Button Click="DialogCloseBeh" Height="Auto" Width="100" VerticalAlignment="Stretch" HorizontalAlignment="Right" Margin="5,5,0,5" DockPanel.Dock="Right" Content="Cancel"/>
+            <Button Click="DialogSubmitBeh" Height="Auto" Width="100" VerticalAlignment="Stretch" HorizontalAlignment="Right" Margin="5,5,0,5" DockPanel.Dock="Right" Content="OK"/>
+        </DockPanel>
+    </Grid>
+</Window>

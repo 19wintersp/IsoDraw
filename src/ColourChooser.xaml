@@ -1,0 +1,48 @@
+﻿<Window x:Class="WPFTest.ColourChooser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFTest"
+        mc:Ignorable="d"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        Title="Colour Chooser" Height="280" Width="400" ResizeMode="NoResize" Topmost="True" WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow" Loaded="WindowLoad" ShowInTaskbar="False">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="Red" Margin="5">
+            <DockPanel HorizontalAlignment="Stretch" Height="Auto" LastChildFill="False" Margin="5" VerticalAlignment="Stretch" Width="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                <Slider ValueChanged="ValueChange" Name="RedSlider" VerticalAlignment="Center" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Maximum="255" SmallChange="1" LargeChange="16" Width="320"/>
+                <TextBlock Name="RedVal" DockPanel.Dock="Right" Text="0" VerticalAlignment="Center" Width="25" TextAlignment="Center"/>
+            </DockPanel>
+        </GroupBox>
+        <GroupBox Header="Green" Margin="5" Grid.Row="1">
+            <DockPanel HorizontalAlignment="Stretch" Height="Auto" LastChildFill="False" Margin="5" VerticalAlignment="Stretch" Width="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                <Slider ValueChanged="ValueChange" Name="GreenSlider" VerticalAlignment="Center" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Maximum="255" SmallChange="1" LargeChange="16" Width="320"/>
+                <TextBlock Name="GreenVal" DockPanel.Dock="Right" Text="0" VerticalAlignment="Center" Width="25" TextAlignment="Center"/>
+            </DockPanel>
+        </GroupBox>
+        <GroupBox Header="Blue" Margin="5" Grid.Row="2">
+            <DockPanel HorizontalAlignment="Stretch" Height="Auto" LastChildFill="False" Margin="5" VerticalAlignment="Stretch" Width="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                <Slider ValueChanged="ValueChange" Name="BlueSlider" VerticalAlignment="Center" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" Maximum="255" SmallChange="1" LargeChange="16" Width="320"/>
+                <TextBlock Name="BlueVal" DockPanel.Dock="Right" Text="0" VerticalAlignment="Center" Width="25" TextAlignment="Center"/>
+            </DockPanel>
+        </GroupBox>
+        <DockPanel Name="Preview" Grid.Row="3" Margin="5,0" Background="White">
+            <TextBlock Text="Preview" VerticalAlignment="Center" HorizontalAlignment="Left" Width="190" TextAlignment="Center"/>
+            <TextBlock Text="Preview" VerticalAlignment="Center" HorizontalAlignment="Right" Width="190" TextAlignment="Center" Foreground="White"/>
+        </DockPanel>
+        <DockPanel Grid.Row="4" Margin="5,0">
+            <Button Click="DialogClose" Height="Auto" Width="100" VerticalAlignment="Stretch" HorizontalAlignment="Right" Margin="5,5,0,5" DockPanel.Dock="Right" Content="Cancel"/>
+            <Button Click="DialogChoose" Height="Auto" Width="100" VerticalAlignment="Stretch" HorizontalAlignment="Right" Margin="5,5,0,5" DockPanel.Dock="Right" Content="OK"/>
+        </DockPanel>
+    </Grid>
+</Window>
